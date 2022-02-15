@@ -3,7 +3,8 @@ import { renderBlock } from './lib.js'
 export function renderSearchFormBlock(checkInDate: string, checkOutDate: string) {
   const today = new Date(); // текущая дата
   const minDate = today.toISOString().slice(0, 10); // минимальная дата вьезда в формате yyyy-mm-dd
-  const maxDate = new Date(today.getFullYear(), today.getMonth() + 2, 1).toISOString().slice(0, 10); // последний день следующего месяца
+  // const maxDate = new Date(today.getFullYear(), today.getMonth() + 2, 1).toISOString().slice(0, 10); // последний день следующего месяца
+  const maxDate = new Date(today.getFullYear(), today.getMonth() + 2, 0).toISOString().slice(0, 10); // последний день следующего месяца
   const defaultCheckInDate = new Date(today.setDate(today.getDate() + 1)).toISOString().slice(0, 10); // прибавляем 1 день к текущему - дата вьезда по умолчанию
   const defaultCheckOutDate = new Date(today.setDate(today.getDate() + 2)).toISOString().slice(0, 10); // прибавляем 2 дня к текущему - дата выезда по умолчанию
 
