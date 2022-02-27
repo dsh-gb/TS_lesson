@@ -26,7 +26,24 @@ export interface Place {
 
 // интерфейс для callback ф-и search
 export interface SearchCallback {
-  (value: Error | Place): void
+  (_value: Error | Place): void
+}
+
+// интерфейс для ф-и handler
+export interface Handler {
+  (): void
+}
+
+// интерфейс сообщения
+export interface Message {
+  text: string
+  type: string
+}
+
+// интерфейс действия
+export interface Action {
+  name: string
+  handler: Handler
 }
 
 // ф-я проверки переданного аргумента на тип User

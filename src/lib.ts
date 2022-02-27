@@ -1,9 +1,11 @@
-export function renderBlock(elementId: string, html: string) {
+import { Action, Message } from './type.js'
+
+export function renderBlock(elementId: string, html: string): void {
   const element = document.getElementById(elementId)
-  element.innerHTML = html
+  if (element !== null) element.innerHTML = html
 }
 
-export function renderToast(message: { text: string, type: string }, action: { name: string, handler }) {
+export function renderToast(message: Message | null, action: Action): void {
   let messageText = ''
 
   if (message != null) {
